@@ -1,0 +1,214 @@
+<div class="min-h-screen bg-gray-900 text-white">
+    <!-- Navigáció -->
+    <nav class="bg-black bg-opacity-80 fixed w-full z-10">
+      <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <div class="text-2xl font-bold text-yellow-400">Fesztivál<span class="text-white">Név</span></div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="hover:text-yellow-400 transition">Kezdőlap</a>
+          <a href="#" class="hover:text-yellow-400 transition">Program</a>
+          <a href="#" class="hover:text-yellow-400 transition">Előadók</a>
+          <a href="#" class="hover:text-yellow-400 transition">Jegyek</a>
+          <a href="#" class="hover:text-yellow-400 transition">Információk</a>
+          <a href="#" class="hover:text-yellow-400 transition">Kapcsolat</a>
+        </div>
+        <button class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  
+    <!-- Hero rész -->
+    <header class="relative h-screen flex items-center justify-center bg-gray-800 overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <video autoplay muted loop class="absolute w-full h-full object-cover">
+        <source src="assets/fesztival-video.mp4" type="video/mp4">
+      </video>
+      
+      <div class="container mx-auto px-6 relative z-10 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-pulse">
+          <span class="text-yellow-400">FESZTIVÁL</span> NÉV 2024
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">A legnagyobb zenei élmény az évben! 3 nap, 5 színpad, 100+ előadó.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
+            JEGYEK VÁSÁRLÁSA
+          </button>
+          <button class="bg-transparent hover:bg-white hover:bg-opacity-10 border-2 border-white text-white font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
+            PROGRAMOK
+          </button>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-10 left-0 right-0 text-center">
+        <a href="#tartalom" class="animate-bounce inline-block">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+      </div>
+    </header>
+  
+    <!-- Fő tartalom -->
+    <main id="tartalom" class="py-20">
+      <!-- Időpontok -->
+      <section class="container mx-auto px-6 mb-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">IDŐPONTOK</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-800 rounded-lg p-6 text-center hover:transform hover:scale-105 transition">
+            <h3 class="text-2xl font-bold text-yellow-400 mb-4">1. NAP</h3>
+            <p class="text-xl">2024. Július 12.</p>
+            <p class="mt-2">18:00 - 04:00</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg p-6 text-center hover:transform hover:scale-105 transition">
+            <h3 class="text-2xl font-bold text-yellow-400 mb-4">2. NAP</h3>
+            <p class="text-xl">2024. Július 13.</p>
+            <p class="mt-2">14:00 - 04:00</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg p-6 text-center hover:transform hover:scale-105 transition">
+            <h3 class="text-2xl font-bold text-yellow-400 mb-4">3. NAP</h3>
+            <p class="text-xl">2024. Július 14.</p>
+            <p class="mt-2">14:00 - 02:00</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Előadók -->
+      <section class="container mx-auto px-6 mb-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">FEJLÉC ELŐADÓK</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div *ngFor="let artist of artists" class="group relative overflow-hidden rounded-lg">
+            <img [src]="artist.image" [alt]="artist.name" class="w-full h-64 object-cover group-hover:opacity-50 transition">
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <h3 class="text-2xl font-bold text-center">{{artist.name}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <button class="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-2 px-6 rounded-full transition">
+            ÖSSZES ELŐADÓ
+          </button>
+        </div>
+      </section>
+  
+      <!-- Jegyek -->
+      <section class="bg-gray-800 py-16 mb-20">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">JEGYVÁSÁRLÁS</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="bg-gray-900 rounded-lg p-8 text-center border-2 border-yellow-400 transform hover:scale-105 transition">
+              <h3 class="text-2xl font-bold text-yellow-400 mb-4">1 NAPOS JEGY</h3>
+              <p class="text-4xl font-bold mb-6">12.990 Ft</p>
+              <ul class="mb-8 space-y-3">
+                <li>1 nap bármelyik napra</li>
+                <li>5 színpad</li>
+                <li>Parkoló +1.500 Ft</li>
+              </ul>
+              <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full w-full transition">
+                VÁSÁRLÁS
+              </button>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-8 text-center border-2 border-yellow-400 transform hover:scale-105 transition relative">
+              <div class="absolute top-0 right-0 bg-yellow-400 text-black font-bold px-4 py-1 transform translate-x-2 -translate-y-2 rotate-6">
+                LEGJOBB AJÁNLAT!
+              </div>
+              <h3 class="text-2xl font-bold text-yellow-400 mb-4">3 NAPOS JEGY</h3>
+              <p class="text-4xl font-bold mb-6">29.990 Ft</p>
+              <ul class="mb-8 space-y-3">
+                <li>3 napos belépő</li>
+                <li>5 színpad</li>
+                <li>Ingyenes parkolás</li>
+                <li>VIP terület</li>
+              </ul>
+              <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full w-full transition">
+                VÁSÁRLÁS
+              </button>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-8 text-center border-2 border-yellow-400 transform hover:scale-105 transition">
+              <h3 class="text-2xl font-bold text-yellow-400 mb-4">CSALÁDI JEGY</h3>
+              <p class="text-4xl font-bold mb-6">39.990 Ft</p>
+              <ul class="mb-8 space-y-3">
+                <li>2 felnőtt + 2 gyerek</li>
+                <li>3 napos belépő</li>
+                <li>5 színpad</li>
+                <li>Ingyenes parkolás</li>
+              </ul>
+              <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full w-full transition">
+                VÁSÁRLÁS
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Hírlevél -->
+      <section class="container mx-auto px-6 mb-20 max-w-4xl">
+        <div class="bg-gray-800 rounded-lg p-8 text-center">
+          <h2 class="text-3xl font-bold mb-4">MARADJ KAPCSOLATBAN!</h2>
+          <p class="mb-6">Iratkozz fel hírlevelünkre, hogy elsőként értesülj a legfrissebb hírekről és exkluzív ajánlatokról!</p>
+          <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input type="email" placeholder="Email címed" class="flex-grow px-4 py-2 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition">
+              FELIRATKOZÁS
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  
+    <!-- Lábléc -->
+    <footer class="bg-black py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-yellow-400 mb-4">Fesztivál Név</h3>
+            <p>Az ország legnagyobb zenei fesztiválja, ahol a legjobb előadók találkoznak a leglelkesebb közönséggel.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Linkek</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-yellow-400 transition">Jegyvásárlás</a></li>
+              <li><a href="#" class="hover:text-yellow-400 transition">Programok</a></li>
+              <li><a href="#" class="hover:text-yellow-400 transition">Szabályzat</a></li>
+              <li><a href="#" class="hover:text-yellow-400 transition">GYIK</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Kapcsolat</h3>
+            <ul class="space-y-2">
+              <li>infofesztivalnev.hu</li>
+              <li>+36 30 123 4567</li>
+              <li>1234 Fesztiválváros, Fő út 1.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Kövess minket</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                <span class="sr-only">Facebook</span>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                <span class="sr-only">Instagram</span>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                <span class="sr-only">YouTube</span>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; 2024 Fesztivál Név. Minden jog fenntartva.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
