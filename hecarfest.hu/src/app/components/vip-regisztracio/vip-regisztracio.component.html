@@ -70,7 +70,7 @@
 
 
             <!-- Űrlap -->
-            <form class="space-y-6">
+            <form #registrationForm class="space-y-6" (submit)="onSubmit($event)" enctype="multipart/form-data">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="lastname" class="block text-sm font-medium">Vezetéknév*</label>
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <label for="carimage" class="block text-sm font-medium"></label>
+                        <label for="carimage1" class="block text-sm font-medium"></label>
                         <div class="mt-1 flex items-center">
                             <label for="carimage" class="cursor-pointer">
                                 <span class="inline-flex items-center px-4 py-2 border border-gray-600 bg-gray-800 rounded-lg text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition">
@@ -118,15 +118,15 @@
                                     </svg>
                                     Kép az autóról [1/4]
                                 </span>
-                                <input id="carimage" name="carimage" type="file" accept="image/*" class="hidden">
+                                <input id="carimage" name="carImage1" type="file" accept="image/*" class="hidden" (change)="updateFileName($event, 'autokep1')">
                             </label>
-                            <span id="filename" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
+                            <span id="autokep1" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
                         </div>
                         <!-- <p class="mt-1 text-xs text-gray-400">Max. 5MB, JPG/PNG/WebP formátum</p> -->
                     </div>
 
                     <div class="mt-4">
-                        <label for="carimage" class="block text-sm font-medium"></label>
+                        <label for="carimage2" class="block text-sm font-medium"></label>
                         <div class="mt-1 flex items-center">
                             <label for="carimage" class="cursor-pointer">
                                 <span class="inline-flex items-center px-4 py-2 border border-gray-600 bg-gray-800 rounded-lg text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition">
@@ -135,15 +135,15 @@
                                     </svg>
                                     Kép az autóról [2/4]
                                 </span>
-                                <input id="carimage" name="carimage" type="file" accept="image/*" class="hidden">
+                                <input id="carimage2" name="carImage2" type="file" accept="image/*" class="hidden" (change)="updateFileName($event, 'autokep2')">
                             </label>
-                            <span id="filename" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
+                            <span id="autokep2" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
                         </div>
                         <!-- <p class="mt-1 text-xs text-gray-400">Max. 5MB, JPG/PNG/WebP formátum</p> -->
                     </div>
 
                     <div class="mt-4">
-                        <label for="carimage" class="block text-sm font-medium"></label>
+                        <label for="carimage3" class="block text-sm font-medium"></label>
                         <div class="mt-1 flex items-center">
                             <label for="carimage" class="cursor-pointer">
                                 <span class="inline-flex items-center px-4 py-2 border border-gray-600 bg-gray-800 rounded-lg text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition">
@@ -152,15 +152,15 @@
                                     </svg>
                                     Kép az autóról [3/4]
                                 </span>
-                                <input id="carimage" name="carimage" type="file" accept="image/*" class="hidden">
+                                <input id="carimage3" name="carImage3" type="file" accept="image/*" class="hidden" (change)="updateFileName($event, 'autokep3')">
                             </label>
-                            <span id="filename" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
+                            <span id="autokep3" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
                         </div>
                         <!-- <p class="mt-1 text-xs text-gray-400">Max. 5MB, JPG/PNG/WebP formátum</p> -->
                     </div>
 
                     <div class="mt-4">
-                        <label for="carimage" class="block text-sm font-medium"></label>
+                        <label for="carimage4" class="block text-sm font-medium"></label>
                         <div class="mt-1 flex items-center">
                             <label for="carimage" class="cursor-pointer">
                                 <span class="inline-flex items-center px-4 py-2 border border-gray-600 bg-gray-800 rounded-lg text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition">
@@ -169,15 +169,15 @@
                                     </svg>
                                     Kép az autóról [4/4]
                                 </span>
-                                <input id="carimage" name="carimage" type="file" accept="image/*" class="hidden">
+                                <input id="carimage4" name="carImage4" type="file" accept="image/*" class="hidden" (change)="updateFileName($event, 'autokep4')">
                             </label>
-                            <span id="filename" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
+                            <span id="autokep4" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
                         </div>
                         <!-- <p class="mt-1 text-xs text-gray-400">Max. 5MB, JPG/PNG/WebP formátum</p> -->
                     </div>
 
                     <div class="mt-4">
-                        <label for="carimage" class="block text-sm font-medium"></label>
+                        <label for="carimage5" class="block text-sm font-medium"></label>
                         <div class="mt-1 flex items-center">
                             <label for="carimage" class="cursor-pointer">
                                 <span class="inline-flex items-center px-4 py-2 border border-gray-600 bg-gray-800 rounded-lg text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition">
@@ -186,9 +186,9 @@
                                     </svg>
                                     Belső kép az autóról
                                 </span>
-                                <input id="carimage" name="carimage" type="file" accept="image/*" class="hidden">
+                                <input id="belsokep" name="interiorImage" type="file" accept="image/*" class="hidden" (change)="updateFileName($event, 'autobelso')">
                             </label>
-                            <span id="filename" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
+                            <span id="belsokep" class="ml-2 text-sm text-gray-300">Nincs fájl kiválasztva</span>
                         </div>
                         <!-- <p class="mt-1 text-xs text-gray-400">Max. 5MB, JPG/PNG/WebP formátum</p> -->
                     </div>
