@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+hecarfest.hu/api/src/hecarfest-vip-ef5c3c98bf0f.json
+
+hecarfest.hu/api/src/.env
+hecarfest.hu/api/src/*.json
+
